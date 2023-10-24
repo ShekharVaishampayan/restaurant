@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>fantastic foods</title>
+    <style>
+        body {
+            background-color: Gray;
+            margin: 0;
+        }
+        div.topBar {
+            background-color: DimGray;
+            margin-top: 0;
+        }
+        div.filters {
+            display: inline-block;
+            width: 50%;
+            float: right;
+        }
+        div.title {
+           display: inline-block;
+           width: 50%;
+        }
+        h1 {
+            margin-left: 10px;
+            color: white;
+            font-family: Trebuchet MS;
+        }
+        div.filters button {
+            padding: 3% 4%;
+            font-size: 18px;
+            margin-top: 0;
+            border-radius: 30px;
+            border: 2px solid black;
+        }
+        div.sideBar{
+            background-color: #535353;
+            display: inline-block;
+            width: 15%;
+            position: fixed;
+        }
+        div.sideBar p {
+            margin: 0;
+            margin-left: 10%;
+            display: block;
+            border: 0;
+            padding: 7.1% 10%;
+            background-color: #535353;
+            color: white;
+            font-size: 26px;
+            padding-left: 0;
+        }
+        div.sideBar div:last-child {
+            margin-bottom: 0;
+        }
+        div.sideBar div {
+            border-bottom: 2px solid lightgray;
+            margin-bottom: 9%;
+        }
+        div.content {
+            display: inline-block;
+            margin-left: 15%;
+            width: 80%;
+            height: 652px;
+            overflow-y: scroll;
+            padding-left: 5%;
+        }
+        div.content h2 {
+            color: White;
+            font-size: 37px;
+            font-family: Trebuchet MS;
+        }
+        p.header {
+            color: white;
+            font-size: 26px;
+            font-weight: bold;
+            margin-left: 2%;
+        }
+        p.ingredients, p.veg, p.spice, p.price {
+            color: Beige;
+            font-size: 24px;
+            margin-left: 4%;
+            display: inline-block;
+        }
+        p.price {
+            color: lightgreen;
+        }
+        div.section {
+            width: 50%;
+            margin-right: 0;
+        }
+        table {
+            width: 100%
+        }
+        div.images {
+            display: inline-block;
+            width: 40%;
+            float: right;
+        }
+        img {
+            margin-top: 13%;
+            display: block;
+            border-radius: 50%;
+            border: 4px solid black;
+        }
+        img:first-child {
+            margin-top: 30%;
+        }
+    </style>
+    <script>
+        function vegFilter() {
+            let button = document.getElementById("filter1");
+            if (button.style.backgroundColor === "orange"){
+                button.style.backgroundColor = "white";
+                let x = document.querySelectorAll(".nonVeg");
+                for (var i = 0; i < x.length; i++){
+                    x[i].style.display = "block";
+                }
+            } else {
+                button.style.backgroundColor = "orange";
+                document.getElementById("filter2").style.backgroundColor = "white";
+                document.getElementById("filter3").style.backgroundColor = "white";
+
+                let x = document.querySelectorAll(".nonVeg");
+                for (var i = 0; i < x.length; i++){
+                    x[i].style.display = "none";
+                }
+            }
+        }
+        function cheapFilter() {
+            button = document.getElementById("filter2");
+            if (button.style.backgroundColor === "orange"){
+                button.style.backgroundColor = "white";
+                let x = document.querySelectorAll(".exp");
+                for (var i = 0; i < x.length; i++){
+                    x[i].style.display = "block";
+                }
+            } else {
+                button.style.backgroundColor = "orange";
+                document.getElementById("filter1").style.backgroundColor = "white";
+                document.getElementById("filter3").style.backgroundColor = "white";
+                let x = document.querySelectorAll(".exp");
+                for (var i = 0; i < x.length; i++){
+                    x[i].style.display = "none";
+                }
+            }
+        }
+        function mildFilter() {
+            button = document.getElementById("filter3");
+            if (button.style.backgroundColor === "orange"){
+                button.style.backgroundColor = "white";
+                let x = document.querySelectorAll(".spicy");
+                for (var i = 0; i < x.length; i++){
+                    x[i].style.display = "block";
+                }
+            } else {
+                button.style.backgroundColor = "orange";
+                document.getElementById("filter2").style.backgroundColor = "white";
+                document.getElementById("filter1").style.backgroundColor = "white";
+                let x = document.querySelectorAll(".spicy");
+                for (var i = 0; i < x.length; i++){
+                    x[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="topBar">
+    <div class="title">
+        <h1>Fantastic Foods.com</h1>
+    </div>
+    <div class="filters">
+        <button id="filter1" type="button" onclick="vegFilter()">Vegetarian</button>
+        <button id="filter2" type="button" onclick="cheapFilter()">Cheap</button>
+        <button id="filter3" type="button" onclick="mildFilter()">Non-spicy</button>
+    </div>
+</div>
+<div class="sideBar">
+    <div>
+        <p>Roasts</p>
+    </div>
+    <div>
+        <p>Pizzas</p>
+    </div>
+    <div>
+        <p>Pasta</p>
+    </div>
+    <div>
+        <p>Burger</p>
+    </div>
+    <div>
+        <p>More fried food</p>
+    </div>
+    <div>
+        <p>Sides</p>
+    </div>
+    <div>
+        <p>Salads</p>
+    </div>
+    <div>
+        <p>Desserts</p>
+    </div>
+</div>
+<div class="content">
+    <div class="images">
+        <img src="roast corn.jpg">
+        <img  class="nonVeg exp spicy" src="roast chicken.png">
+        <img class="nonVeg" src="roast fish.png">
+        <img src="four cheese pizza.png">
+        <img src="mrgherita.png">
+        <img class="nonVeg exp" src="chicken pizza.png">
+        <img class="nonVeg exp spicy" src="hawiian pizza.png">
+        <img class="nonVeg exp" src="peperoni pizza.png">
+        <img src="boiled pasta.png" style="margin-top: 9px;">
+        <img class="nonVeg exp spicy" src="chicken pasta.jpg">
+        <img class="exp" src="pesto pasta.jpg">
+        <img class="exp" src="veg burger.jpg">
+        <img class="nonVeg exp" src="chicken burger.jpg">
+        <img class="nonVeg exp spicy" src="chicken bigB.jpg">
+        <img class="exp spicy" src="veg bigB.jpg">
+        <img class="nonVeg" src="normal fried chicken.jpg">
+        <img class="nonVeg spicy" src="spicy fried chicken.jpg">
+        <img class="spicy" src="papad.jpg">
+        <img src="french fries.jpg">
+        <img src="veg salad.jpg">
+        <img src="fruit salad.jpg">
+        <img src="ice cream.jpg">
+        <img src="chocolate cake.jpg">
+        <img src="custard apple.jpg">
+        <img src="starwberry cake.jpg">
+    </div>
+    <h2>Roasts</h2>
+    <div class="section">
+    <p class="header">Roasted Corn</p>
+    <table>
+        <tr>
+            <td><p class="ingredients"><b>ingredients:</b>  corn</p></td>
+            <td><p class="spice">spiciness: mild</p></td>
+        </tr>
+        <tr>
+            <td><p class="veg">Vegetarian</p></td>
+            <td><p class="price">cost: $7.3</p></td>
+        </tr>
+    </table>
+
+    </div>
+
+    <div class="section nonVeg exp spicy">
+    <p class="header nonVeg exp spicy">Roast Chicken</p>
+    <table class="nonVeg exp spicy">
+        <tr>
+            <td><p class="ingredients"><b>ingredients:</b>  chicken</p></td>
+            <td><p class="spice">spiciness: spicy</p></td>
+        </tr>
+        <tr>
+            <td><p class="veg">Non-Vegetarian</p></td>
+            <td><p class="price">cost: $10.5</p></td>
+        </tr>
+    </table>
+    </div>
+
+    <div class="section nonVeg">
+    <p class="header nonVeg">Roast fish fillet</p>
+    <table class="nonVeg">
+        <tr>
+            <td><p class="ingredients"><b>ingredients:</b>  fish</p></td>
+            <td><p class="spice">spiciness: medium</p></td>
+        </tr>
+        <tr>
+            <td><p class="veg">Non-Vegetarian</p></td>
+            <td><p class="price"> cost: $8.5</p></td>
+        </tr>
+    </table>
+    </div>
+
+    <div class="section">
+    <h2>pizzas</h2>
+    <p class="header">Four Cheeses Pizza</p>
+    <table>
+        <tr>
+            <td><p class="ingredients"><b>ingredients:</b> Mozzarella, Brie, Roquefort, Camembert</p></td>
+            <td><p class="spice">spiciness: mild</p></td>
+        </tr>
+        <tr>
+            <td><p class="veg">Vegetarian</p></td>
+            <td><p class="price">cost: $10</p></td>
+        </tr>
+    </table>
+
+    </div>
+
+    <div class="section">
+    <p class="header">Margherita</p>
+    <table>
+        <tr>
+            <td><p class="ingredients"><b>ingredients:</b> cheese, basil leaf</p></td>
+            <td><p class="spice">spiciness: mild</p></td>
+        </tr>
+        <tr>
+            <td><p class="veg">Vegetarian</p></td>
+            <td><p class="price">cost: $8.5</p></td>
+        </tr>
+    </table>
+    </div>
+
+    <div class="section nonVeg exp">
+    <p class="header nonVeg exp">Chicken Pizza</p>
+    <table class="nonVeg exp">
+        <tr>
+            <td><p class="ingredients"><b>ingredients:</b> chicken, cheese, mushroom</p></td>
+            <td><p class="spice">spiciness: medium</p></td>
+        </tr>
+        <tr>
+            <td><p class="veg">Non-Vegetarian</p></td>
+            <td><p class="price">cost: $13</p></td>
+        </tr>
+    </table>
+    </div>
+
+    <div class="section nonVeg exp spicy">
+        <p class="header nonVeg exp spicy">Hawaiian Pizza</p>
+        <table class="nonVeg exp spicy">
+            <tr>
+                <td><p class="ingredients"><b>ingredients:</b> cheese, beef</p></td>
+                <td><p class="spice">spiciness: spicy</p></td>
+            </tr>
+            <tr>
+                <td><p class="veg">Non-Vegetarian</p></td>
+                <td><p class="price">cost: $15</p></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section nonVeg exp">
+    <p class="header nonVeg exp">Peperoni Pizza</p>
+        <table class="nonVeg exp">
+            <tr>
+                <td><p class="ingredients"><b>ingredients:</b> cheese, peperoni</p></td>
+                <td><p class="spice">spiciness: medium</p></td>
+            </tr>
+            <tr>
+                <td><p class="veg">Non-Vegetarian</p></td>
+                <td><p class="price">cost: $14</p></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+    <h2>pasta</h2>
+    <p class="header">Boiled Pasta</p>
+    <table>
+        <tr>
+            <td><p class="ingredients"><b>ingredients:</b> olive oil, herbs, spices</p></td>
+            <td><p class="spice">spiciness: mild</p></td>
+        </tr>
+        <tr>
+            <td><p class="veg">Vegetarian</p></td>
+            <td><p class="price">cost: $8</p></td>
+        </tr>
+    </table>
+
+
+    </div>
+
+    <div class="section nonVeg exp spicy">
+    <p class="header nonVeg exp spicy">Chicken Pasta</p>
+    <table class="nonVeg exp spicy">
+        <tr>
+            <td><p class="ingredients"><b>ingredients:</b> red/pink sauce, chicken pieces</p></td>
+            <td><p class="spice">spiciness: spicy</p></td>
+        </tr>
+        <tr>
+            <td><p class="veg">Non-Vegetarian</p></td>
+            <td><p class="price">cost: $11</p></td>
+        </tr>
+    </table>
+
+
+    </div>
+
+    <div class="section exp">
+    <p class="header exp">Pesto Pasta</p>
+    <table class="exp">
+        <tr>
+            <td><p class="ingredients"><b>ingredients:</b> cheese, basil pesto sauce</p></td>
+            <td><p class="spice">spiciness: mild</p></td>
+        </tr>
+        <tr>
+            <td><p class="veg">Vegetarian</p></td>
+            <td><p class="price">cost: $18</p></td>
+        </tr>
+    </table>
+    </div>
+
+    <div class="section exp">
+    <h2 class="exp">burger</h2>
+    <p class="header exp">Veg burger</p>
+    <table class="exp">
+        <tr>
+            <td><p class="ingredients"><b>ingredients:</b> cheese, tomato, onion, lettuce, veg patty</p></td>
+            <td><p class="spice">spiciness: medium</p></td>
+        </tr>
+        <tr>
+            <td><p class="veg">Vegetarian</p></td>
+            <td><p class="price">cost: $14</p></td>
+        </tr>
+    </table>
+    </div>
+
+    <div class="section nonVeg exp">
+    <p class="header nonVeg exp">Chicken burger</p>
+    <table class="nonVeg exp">
+        <tr>
+            <td><p class="ingredients"><b>ingredients:</b> cheese, tomato, onion, chicken patty</p></td>
+            <td><p class="spice">spiciness: medium</p></td>
+        </tr>
+        <tr>
+            <td><p class="veg">Non-Vegetarian</p></td>
+            <td><p class="price">cost: $15.7</p></td>
+        </tr>
+    </table>
+    </div>
+
+    <div class="section nonVeg exp spicy">
+    <p class="header nonVeg exp spicy"> Non-Veg Gigantamax Burger</p>
+        <table class="nonVeg exp spicy">
+            <tr>
+                <td><p class="ingredients"><b>ingredients:</b> cheese, tomato, onion, lettuce, chicken patty</p></td>
+                <td><p class="spice">spiciness: spicy</p></td>
+            </tr>
+            <tr>
+                <td><p class="veg">Non-Vegetarian</p></td>
+                <td><p class="price">cost: $22</p></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section exp spicy">
+    <p class="header exp spicy"> Veg Gigantamax Burger</p>
+    <table class="exp spicy">
+        <tr>
+            <td><p class="ingredients"><b>ingredients:</b> cheese, tomato, onion, lettuce, veg patty</p></td>
+            <td><p class="spice">spiciness: spicy</p></td>
+        </tr>
+        <tr>
+            <td><p class="veg">Vegetarian</p></td>
+            <td><p class="price">cost: $19</p></td>
+        </tr>
+    </table>
+    </div>
+
+    <div class="section nonVeg">
+    <h2 class="nonVeg">fried chicken</h2>
+    <p class="header nonVeg">fried Chicken</p>
+    <table class="nonVeg">
+        <tr>
+            <td><p class="ingredients"><b>ingredients:</b> chicken, oil</p></td>
+            <td><p class="spice">spiciness: medium</p></td>
+        </tr>
+        <tr>
+            <td><p class="veg">Non-Vegetarian</p></td>
+            <td><p class="price">cost: $8</p></td>
+        </tr>
+    </table>
+    </div>
+
+    <div class="section nonVeg spicy">
+    <p class="header nonVeg">Smoky Fried Chicken</p>
+    <table class="nonVeg">
+        <tr>
+            <td><p class="ingredients"><b>ingredients:</b> chicken, oil, masala</p></td>
+            <td><p class="spice">spiciness: spicy</p></td>
+        </tr>
+        <tr>
+            <td><p class="veg">Non-Vegetarian</p></td>
+            <td><p class="price">cost: $10</p></td>
+        </tr>
+    </table>
+
+
+    </div>
+
+    <div class="section">
+    <h2>sides</h2>
+    <p class="header spicy"> Papad</p>
+    <table class="spicy">
+        <tr>
+            <td><p class="ingredients"><b>ingredients:</b> black gram flour, salt, chilly powder, oil</p></td>
+            <td><p class="spice">spiciness: spicy</p></td>
+        </tr>
+        <tr>
+            <td><p class="veg">Vegetarian</p></td>
+            <td><p class="price">cost: $4</p></td>
+        </tr>
+    </table>
+
+    </div>
+
+    <div class="section">
+    <p class="header"> French Fries</p>
+    <table>
+        <tr>
+            <td><p class="ingredients"><b>ingredients:</b> Potatoes, oil</p></td>
+            <td><p class="spice">spiciness: mild</p></td>
+        </tr>
+        <tr>
+            <td><p class="veg">Vegetarian</p></td>
+            <td><p class="price">cost: $3</p></td>
+        </tr>
+    </table>
+    </div>
+
+    <div class="section">
+    <h2>salads</h2>
+    <p class="header"> Vegetable Salad</p>
+    <table>
+        <tr>
+            <td><p class="ingredients"><b>ingredients:</b> tomato, onion, cucumber, carrot</p></td>
+            <td><p class="spice">spiciness: medium</p></td>
+        </tr>
+        <tr>
+            <td><p class="veg">Vegetarian</p></td>
+            <td><p class="price">cost: $10</p></td>
+        </tr>
+    </table>
+    </div>
+
+    <div class="section">
+    <p class="header"> Fruit Salad</p>
+    <table>
+        <tr>
+            <td><p class="ingredients"><b>ingredients:</b> apple, banana, cherry, grape</p></td>
+            <td><p class="spice">spiciness: mild</p></td>
+        </tr>
+        <tr>
+            <td><p class="veg">Vegetarian</p></td>
+            <td><p class="price">cost: $9</p></td>
+        </tr>
+    </table>
+    </div>
+
+    <div class="section">
+    <h2>desserts</h2>
+    <p class="header">Ice-Cream</p>
+    <table>
+        <tr>
+            <td><p class="ingredients"><b>ingredients:</b> milk, sugar, vanilla extract</p></td>
+            <td><p class="spice">spiciness: mild</p></td>
+        </tr>
+        <tr>
+            <td><p class="veg">Vegetarian</p></td>
+            <td><p class="price">cost: $8</p></td>
+        </tr>
+    </table>
+    </div>
+
+    <div class="section">
+    <p class="header"> Chocolate Cake</p>
+    <table>
+        <tr>
+            <td><p class="ingredients"><b>ingredients:</b> milk, eggs, flour, chocolate</p></td>
+            <td><p class="spice">spiciness: mild</p></td>
+        </tr>
+        <tr>
+            <td><p class="veg">Vegetarian</p></td>
+            <td><p class="price">cost: $9</p></td>
+        </tr>
+    </table>
+    </div>
+
+    <div class="section">
+    <p class="header"> Custard apple</p>
+    <table>
+        <tr>
+            <td><p class="ingredients"><b>ingredients:</b> apple, custard</p></td>
+            <td><p class="spice">spiciness: mild</p></td>
+        </tr>
+        <tr>
+            <td><p class="veg">Vegetarian</p></td>
+            <td><p class="price">cost: $9</p></td>
+        </tr>
+    </table>
+    </div>
+
+    <div class="section">
+    <p class="header"> Strawberry Cake</p>
+    <table>
+        <tr>
+            <td><p class="ingredients"><b>ingredients:</b> milk, flour, egg, strawberries</p></td>
+            <td><p class="spice">spiciness: mild</p></td>
+        </tr>
+        <tr>
+            <td><p class="veg">Vegetarian</p></td>
+            <td><p class="price">cost: $10</p></td>
+        </tr>
+    </table>
+    </div>
+</div>
+</body>
+</html>
